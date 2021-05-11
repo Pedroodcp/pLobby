@@ -1,0 +1,13 @@
+name: pLobby
+version: 1.0
+author: Pedrodcp
+main: br.com.pedrodcp.plobby.Main
+commands:
+  plobby:
+  chat:
+  build:
+  spawn:
+  voar:
+    aliases: fly
+  vanish:
+    aliases: v
