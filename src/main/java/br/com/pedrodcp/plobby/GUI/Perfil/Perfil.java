@@ -43,37 +43,37 @@ public class Perfil {
         metaitem.setDisplayName("§aInformações Pessoais");
         
         if (p.hasPermission("staff.admin")) {
-            metaitem.setLore(Arrays.asList("§fGrupo: §4Admin", "§fCash: §7" + formatarCash(nickname), "", "§eredemake.com"));
+            metaitem.setLore(Arrays.asList("§fGrupo: §4Admin", "§fCash: §7" + formatarCash(nickname), "", "§eredeteste.com"));
         } else {
             if (p.hasPermission("staff.gerente")) {
-                metaitem.setLore(Arrays.asList("§fGrupo: §9Gerente", "§fCash: §7" + formatarCash(nickname), "", "§eredemake.com"));
+                metaitem.setLore(Arrays.asList("§fGrupo: §9Gerente", "§fCash: §7" + formatarCash(nickname), "", "§eredeteste.com"));
             } else {
                 if (p.hasPermission("staff.coord")) {
-                    metaitem.setLore(Arrays.asList("§fGrupo: §5Coordenador", "§fCash: §7" + formatarCash(nickname), "", "§eredemake.com"));
+                    metaitem.setLore(Arrays.asList("§fGrupo: §5Coordenador", "§fCash: §7" + formatarCash(nickname), "", "§eredeteste.com"));
                 } else {
                     if (p.hasPermission("staff.moderador")) {
-                        metaitem.setLore(Arrays.asList("§fGrupo: §2Moderador", "§fCash: §7" + formatarCash(nickname), "", "§eredemake.com"));
+                        metaitem.setLore(Arrays.asList("§fGrupo: §2Moderador", "§fCash: §7" + formatarCash(nickname), "", "§eredeteste.com"));
                     }
                     if (p.hasPermission("staff.ajudante")) {
-                        metaitem.setLore(Arrays.asList("§fGrupo: §aAjudante", "§fCash: §7" + formatarCash(nickname), "", "§eredemake.com"));
+                        metaitem.setLore(Arrays.asList("§fGrupo: §aAjudante", "§fCash: §7" + formatarCash(nickname), "", "§eredeteste.com"));
                     } else {
                         if (p.hasPermission("group.construtor")) {
-                            metaitem.setLore(Arrays.asList("§fGrupo: §eConstrutor", "§fCash: §7" + formatarCash(nickname), "", "§eredemake.com"));
+                            metaitem.setLore(Arrays.asList("§fGrupo: §eConstrutor", "§fCash: §7" + formatarCash(nickname), "", "§eredeteste.com"));
                         }
                         if (p.hasPermission("group.youtuber")) {
-                            metaitem.setLore(Arrays.asList("§fGrupo: §cYouTuber", "§fCash: §7" + formatarCash(nickname), "", "§eredemake.com"));
+                            metaitem.setLore(Arrays.asList("§fGrupo: §cYouTuber", "§fCash: §7" + formatarCash(nickname), "", "§eredeteste.com"));
                         } else {
                             if (p.hasPermission("group.lendario")) {
-                                metaitem.setLore(Arrays.asList("§fGrupo: §6Lendário", "§fCash: §7" + formatarCash(nickname), "", "§eredemake.com"));
+                                metaitem.setLore(Arrays.asList("§fGrupo: §6Lendário", "§fCash: §7" + formatarCash(nickname), "", "§eredeteste.com"));
                             } else {
                                 if (p.hasPermission("group.mvp")) {
-                                    metaitem.setLore(Arrays.asList("§fGrupo: §bMVP", "§fCash: §7" + formatarCash(nickname), "", "§eredemake.com"));
+                                    metaitem.setLore(Arrays.asList("§fGrupo: §bMVP", "§fCash: §7" + formatarCash(nickname), "", "§eredeteste.com"));
                                 } else {
                                     if (p.hasPermission("group.vip")) {
-                                        metaitem.setLore(Arrays.asList("§fGrupo: §aVIP", "§fCash: §7" + formatarCash(nickname), "", "§eredemake.com"));
+                                        metaitem.setLore(Arrays.asList("§fGrupo: §aVIP", "§fCash: §7" + formatarCash(nickname), "", "§eredeteste.com"));
                                     } else {
                                         if (p.hasPermission("group.membro")) {
-                                            metaitem.setLore(Arrays.asList("§fGrupo: §7Membro", "§fCash: §7" + formatarCash(nickname), "", "§eredemake.com"));
+                                            metaitem.setLore(Arrays.asList("§fGrupo: §7Membro", "§fCash: §7" + formatarCash(nickname), "", "§eredeteste.com"));
                                         }
                                     }
                                 }

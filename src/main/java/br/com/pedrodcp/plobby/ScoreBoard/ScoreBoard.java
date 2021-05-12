@@ -41,7 +41,7 @@ public class ScoreBoard {
         b = m.getNewScoreboard();
         o = b.registerNewObjective("plugin", "");
         o.setDisplaySlot(DisplaySlot.SIDEBAR);
-        o.setDisplayName("§6§lREDE MAKE");
+        o.setDisplayName("§6§lREDE TESTE");
 
         espaço = o.getScore("");
         espaço.setScore(8);
@@ -124,7 +124,7 @@ public class ScoreBoard {
         espaço = o.getScore("   ");
         espaço.setScore(1);
 
-        IP = o.getScore("§eredemake.com");
+        IP = o.getScore("§eredeteste.com");
         IP.setScore(0);
 
         player.setScoreboard(b);
