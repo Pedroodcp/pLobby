@@ -1,2 +1,2 @@
 # pLobby
- Plugin de Lobby com ligação ao pExternal, pDiscord e BungeePlugin.
+ Plugin de Lobby com integração ao BungeeCord.
