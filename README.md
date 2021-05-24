@@ -1,2 +1,2 @@
 # pLobby
- Plugin de Lobby com integração ao BungeeCord.
+ A lobby plugin with BungeeCord integration.
