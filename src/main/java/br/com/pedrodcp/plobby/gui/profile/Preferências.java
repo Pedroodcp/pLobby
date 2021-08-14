@@ -1,4 +1,4 @@
-package br.com.pedrodcp.plobby.GUI.Perfil;
+package br.com.pedrodcp.plobby.gui.profile;
 
 import br.com.pedrodcp.plobby.Main;
 import br.com.pedrodcp.plobby.utils.Item;
@@ -10,7 +10,7 @@ import org.bukkit.inventory.ItemStack;
 
 import java.util.Collections;
 
-import static br.com.pedrodcp.plobby.Eventos.InteractEvent.*;
+import static br.com.pedrodcp.plobby.events.InteractEvent.*;
 
 public class Preferências {
 

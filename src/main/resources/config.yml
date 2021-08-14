@@ -1,3 +1,10 @@
+Database:
+  user: ''
+  password: ''
+  host: ''
+  port: 3306
+  database: ''
+
 Spawn:
   world: 'world'
   X:

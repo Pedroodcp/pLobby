@@ -1,6 +1,6 @@
-package br.com.pedrodcp.plobby.Eventos;
+package br.com.pedrodcp.plobby.events;
 
-import br.com.pedrodcp.pexternal.API.PluginAPI;
+import br.com.pedrodcp.pexternal.api.PluginAPI;
 import br.com.pedrodcp.pexternal.models.Account;
 import br.com.pedrodcp.plobby.Main;
 import br.com.pedrodcp.plobby.utils.Item;
@@ -27,7 +27,7 @@ import static br.com.pedrodcp.plobby.Main.getInstance;
 public class JoinAndQuit implements Listener {
 
     @EventHandler
-    public void Join(PlayerJoinEvent e) {
+    public void onPlayerJoin(PlayerJoinEvent e) {
         Player p = e.getPlayer();
         getPlayerManager().loadPlayer(p.getPlayer().getName());
         Date date = new Date();
@@ -193,16 +193,16 @@ public class JoinAndQuit implements Listener {
         if (Main.getPlayerManager().getPlayer(p.getName()).getVanishOption().equals("on")) {
             e.setJoinMessage(null);
             p.sendMessage("§aConectando...");
-            if (p.hasPermission("staff.admin")) {
-                p.setDisplayName("§4[Admin] " + p.getName());
+            if (p.hasPermission("staff.diretor")) {
+                p.setDisplayName("§6[Diretor] " + p.getName());
                 return;
             }
             if (p.hasPermission("staff.gerente")) {
-                p.setDisplayName("§9[Gerente] " + p.getName());
+                p.setDisplayName("§4[Gerente] " + p.getName());
                 return;
             }
-            if (p.hasPermission("staff.coord")) {
-                p.setDisplayName("§5[Coordenador] " + p.getName());
+            if (p.hasPermission("staff.admin")) {
+                p.setDisplayName("§9[Admin] " + p.getName());
                 return;
             }
             if (p.hasPermission("staff.moderador")) {
@@ -210,14 +210,14 @@ public class JoinAndQuit implements Listener {
                 return;
             }
             if (p.hasPermission("staff.ajudante")) {
-                p.setDisplayName("§a[Ajudante] " + p.getName());
+                p.setDisplayName("§e[Ajudante] " + p.getName());
                 if (Main.getPlayerManager().getPlayer(p.getName()).getVanishOption().equals("on")) {
                     Main.getPlayerManager().getPlayer(p.getName()).setVanishOption("off");
                 }
                 return;
             }
             if (p.hasPermission("group.construtor")) {
-                p.setDisplayName("§e[Construtor] " + p.getName());
+                p.setDisplayName("§a[Construtor] " + p.getName());
                 if (Main.getPlayerManager().getPlayer(p.getName()).getVanishOption().equals("on")) {
                     Main.getPlayerManager().getPlayer(p.getName()).setVanishOption("off");
                 }
@@ -230,8 +230,8 @@ public class JoinAndQuit implements Listener {
                 }
                 return;
             }
-            if (p.hasPermission("group.lendario")) {
-                p.setDisplayName("§6[Lendário] " + p.getName());
+            if (p.hasPermission("group.pro")) {
+                p.setDisplayName("§5[PRO] " + p.getName());
                 if (Main.getPlayerManager().getPlayer(p.getName()).getVanishOption().equals("on")) {
                     Main.getPlayerManager().getPlayer(p.getName()).setVanishOption("off");
                 }
@@ -259,19 +259,19 @@ public class JoinAndQuit implements Listener {
             }
 
         } else {
-            if (p.hasPermission("staff.admin")) {
-                p.setDisplayName("§4[Admin] " + p.getName());
-                e.setJoinMessage("§4[Admin] " + p.getName() + " §6entrou neste lobby!");
+            if (p.hasPermission("staff.diretor")) {
+                p.setDisplayName("§6[Diretor] " + p.getName());
+                e.setJoinMessage("§6[Diretor] " + p.getName() + " §6entrou neste lobby!");
                 return;
             }
             if (p.hasPermission("staff.gerente")) {
-                p.setDisplayName("§9[Gerente] " + p.getName());
-                e.setJoinMessage("§9[Gerente] " + p.getName() + " §6entrou neste lobby!");
+                p.setDisplayName("§4[Gerente] " + p.getName());
+                e.setJoinMessage("§4[Gerente] " + p.getName() + " §6entrou neste lobby!");
                 return;
             }
-            if (p.hasPermission("staff.coord")) {
-                p.setDisplayName("§5[Coordenador] " + p.getName());
-                e.setJoinMessage("§5[Coordenador] " + p.getName() + " §6entrou neste lobby!");
+            if (p.hasPermission("staff.admin")) {
+                p.setDisplayName("§9[Admin] " + p.getName());
+                e.setJoinMessage("§9[Admin] " + p.getName() + " §6entrou neste lobby!");
                 return;
             }
             if (p.hasPermission("staff.moderador")) {
@@ -280,13 +280,13 @@ public class JoinAndQuit implements Listener {
                 return;
             }
             if (p.hasPermission("staff.ajudante")) {
-                p.setDisplayName("§a[Ajudante] " + p.getName());
-                e.setJoinMessage("§a[Ajudante] " + p.getName() + " §6entrou neste lobby!");
+                p.setDisplayName("§e[Ajudante] " + p.getName());
+                e.setJoinMessage("§e[Ajudante] " + p.getName() + " §6entrou neste lobby!");
                 return;
             }
             if (p.hasPermission("group.construtor")) {
-                p.setDisplayName("§e[Construtor] " + p.getName());
-                e.setJoinMessage("§e[Construtor] " + p.getName() + " §6entrou neste lobby!");
+                p.setDisplayName("§a[Construtor] " + p.getName());
+                e.setJoinMessage("§a[Construtor] " + p.getName() + " §6entrou neste lobby!");
                 return;
             }
             if (p.hasPermission("group.youtuber")) {
@@ -294,9 +294,9 @@ public class JoinAndQuit implements Listener {
                 e.setJoinMessage("§c[YouTuber] " + p.getName() + " §6entrou neste lobby!");
                 return;
             }
-            if (p.hasPermission("group.lendario")) {
-                p.setDisplayName("§6[Lendário] " + p.getName());
-                e.setJoinMessage("§6[Lendário] " + p.getName() + " §6entrou neste lobby!");
+            if (p.hasPermission("group.pro")) {
+                p.setDisplayName("§5[PRO] " + p.getName());
+                e.setJoinMessage("§5[PRO] " + p.getName() + " §6entrou neste lobby!");
                 return;
             }
             if (p.hasPermission("group.mvp")) {
@@ -318,7 +318,7 @@ public class JoinAndQuit implements Listener {
     }
 
     @EventHandler
-    public void Quit(PlayerQuitEvent e) {
+    public void onPlayerQuit(PlayerQuitEvent e) {
         Player p = e.getPlayer();
         e.setQuitMessage(null);
 

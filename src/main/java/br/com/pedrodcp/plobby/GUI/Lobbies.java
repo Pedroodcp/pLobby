@@ -1,4 +1,4 @@
-package br.com.pedrodcp.plobby.GUI;
+package br.com.pedrodcp.plobby.gui;
 
 import br.com.pedrodcp.plobby.utils.Item;
 import org.bukkit.Bukkit;

@@ -1,4 +1,4 @@
-package br.com.pedrodcp.plobby.Comandos;
+package br.com.pedrodcp.plobby.commands;
 
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -13,7 +13,7 @@ public class plobby implements CommandExecutor {
         Player p = (Player) s;
 
         if (c.getName().equalsIgnoreCase("plobby")) {
-            p.sendMessage("§6[pLobby] §7Criado por §6Pedrodcp§7.");
+            p.sendMessage("§6[pLobby] §7Feito por §6Pedrodcp§7.");
         }
 
         return false;

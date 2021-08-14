@@ -1,12 +1,9 @@
 package br.com.pedrodcp.plobby;
 
-import br.com.pedrodcp.plobby.Comandos.*;
-import br.com.pedrodcp.plobby.Comandos.Chat.chat;
-import br.com.pedrodcp.plobby.Eventos.ChatEvent;
-import br.com.pedrodcp.plobby.Eventos.InteractEvent;
-import br.com.pedrodcp.plobby.Eventos.InventoryClick;
-import br.com.pedrodcp.plobby.Eventos.JoinAndQuit;
-import br.com.pedrodcp.plobby.ScoreBoard.ScoreBoard;
+import br.com.pedrodcp.plobby.commands.*;
+import br.com.pedrodcp.plobby.commands.chat.chat;
+import br.com.pedrodcp.plobby.events.*;
+import br.com.pedrodcp.plobby.scoreboard.ScoreBoard;
 import br.com.pedrodcp.plobby.entity.PlayerManager;
 import br.com.pedrodcp.plobby.utils.MYSQL;
 import org.bukkit.Bukkit;
@@ -18,13 +15,20 @@ public class Main extends JavaPlugin {
     private static Main instance;
     private static PlayerManager playerManager;
     private static MYSQL mysql;
+
     public static ScoreBoard sc;
 
     @Override
     public void onEnable() {
         instance = this;
         playerManager = new PlayerManager();
-        mysql = new MYSQL("root", "vertrigo", "localhost", 3306, "plobby");
+        mysql = new MYSQL(
+                getInstance().getConfig().getString("Database.user"),
+                getInstance().getConfig().getString("Database.password"),
+                getInstance().getConfig().getString("Database.host"),
+                getInstance().getConfig().getInt("Database.port"),
+                getInstance().getConfig().getString("Database.database")
+        );
         sc = new ScoreBoard();
         loadCommands();
         loadConfig();
@@ -63,6 +67,7 @@ public class Main extends JavaPlugin {
         pm.registerEvents(new ChatEvent(), this);
         pm.registerEvents(new InventoryClick(), this);
         pm.registerEvents(new InteractEvent(), this);
+        pm.registerEvents(new Listeners(), this);
     }
 
     public static Main getInstance() {

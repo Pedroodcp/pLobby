@@ -1,6 +1,6 @@
-package br.com.pedrodcp.plobby.Eventos;
+package br.com.pedrodcp.plobby.events;
 
-import static br.com.pedrodcp.plobby.Comandos.Chat.chat.*;
+import static br.com.pedrodcp.plobby.commands.chat.chat.*;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.AsyncPlayerChatEvent;

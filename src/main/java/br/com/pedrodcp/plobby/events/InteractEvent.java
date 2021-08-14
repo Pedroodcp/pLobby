@@ -1,29 +1,23 @@
-package br.com.pedrodcp.plobby.Eventos;
+package br.com.pedrodcp.plobby.events;
 
-import static br.com.pedrodcp.plobby.Comandos.build.*;
-import static br.com.pedrodcp.plobby.Main.getInstance;
-import static br.com.pedrodcp.plobby.Main.getPlayerManager;
-
-import br.com.pedrodcp.plobby.GUI.Compass;
-import br.com.pedrodcp.plobby.GUI.Lobbies;
-import br.com.pedrodcp.plobby.GUI.Perfil.Perfil;
+import br.com.pedrodcp.plobby.gui.Compass;
+import br.com.pedrodcp.plobby.gui.Lobbies;
+import br.com.pedrodcp.plobby.gui.profile.Perfil;
 import br.com.pedrodcp.plobby.Main;
 import br.com.pedrodcp.plobby.utils.Item;
 import org.bukkit.*;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
-import org.bukkit.event.block.*;
-import org.bukkit.event.entity.EntityDamageEvent;
-import org.bukkit.event.player.PlayerDropItemEvent;
-import org.bukkit.event.player.PlayerGameModeChangeEvent;
 import org.bukkit.event.player.PlayerInteractEvent;
-import org.bukkit.event.weather.WeatherChangeEvent;
 import org.bukkit.inventory.ItemStack;
 
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.concurrent.TimeUnit;
+
+import static br.com.pedrodcp.plobby.commands.build.*;
+import static br.com.pedrodcp.plobby.Main.getPlayerManager;
 
 public class InteractEvent implements Listener {
 
@@ -31,7 +25,7 @@ public class InteractEvent implements Listener {
     public static String nickname;
 
     @EventHandler
-    public void Interact(PlayerInteractEvent e) {
+    public void onPlayerInteract(PlayerInteractEvent e) {
         Player p = e.getPlayer();
         if (e.getItem() != null) {
             if (!builder.contains(p)) {
@@ -40,14 +34,14 @@ public class InteractEvent implements Listener {
 
                 } else {
                     if (e.getItem().getType().equals(Material.SKULL_ITEM)) {
-                        nickname = p.getName();
-                        p.openInventory(new Perfil().getInventory());
-
+                        if (e.getItem().getItemMeta().getDisplayName().equals("§aPerfil")) {
+                            nickname = p.getName();
+                            p.openInventory(new Perfil().getInventory());
+                        }
                     } else {
                         if (e.getItem().getType().equals(Material.CHEST)) {
                             p.playSound(p.getLocation(), Sound.VILLAGER_NO, 5F, 1.0F);
                             p.sendMessage("§cAtualmente, este sistema está em desenvolvimento.");
-
                         } else {
                             if (e.getItem().getType().equals(Material.INK_SACK)) {
                                 if (cooldown.containsKey(p) && !(System.currentTimeMillis() >= cooldown.get(p))) {
@@ -68,7 +62,7 @@ public class InteractEvent implements Listener {
                                         Main.getPlayerManager().getPlayer(p.getName()).setJogadoresOption("on");
                                         Main.getPlayerManager().salvarDados(getPlayerManager().getPlayer(p.getName()));
                                         p.getInventory().setItem(7, ativado);
-                                        p.playSound(p.getLocation(), Sound.ORB_PICKUP, 5F, 1.0F);
+                                        p.playSound(p.getLocation(), Sound.CLICK, 5F, 1.0F);
                                         p.sendMessage("§aVisibilidade dos jogadores ativada.");
                                         return;
 
@@ -85,7 +79,7 @@ public class InteractEvent implements Listener {
                                         Main.getPlayerManager().getPlayer(p.getName()).setJogadoresOption("off");
                                         Main.getPlayerManager().salvarDados(getPlayerManager().getPlayer(p.getName()));
                                         p.getInventory().setItem(7, desativado);
-                                        p.playSound(p.getLocation(), Sound.ORB_PICKUP, 5F, 1.0F);
+                                        p.playSound(p.getLocation(), Sound.CLICK, 5F, 1.0F);
                                         p.sendMessage("§cVisibilidade dos jogadores desativada.");
                                 }
                             } else {
@@ -98,58 +92,6 @@ public class InteractEvent implements Listener {
                 }
             }
         }
-    }
-
-    @EventHandler
-    public void BlockBreak(BlockBreakEvent e) {
-        if (e.getBlock().getType() != null) {
-            if (!builder.contains(e.getPlayer())) {
-                e.setCancelled(true);
-            }
-        }
-    }
-
-    @EventHandler
-    public void BlockBuild(BlockPlaceEvent e) {
-        if (!builder.contains(e.getPlayer())) {
-            e.setCancelled(true);
-        }
-    }
-
-    @EventHandler
-    public void DropItem(PlayerDropItemEvent e) {
-        if (!builder.contains(e.getPlayer())) {
-            e.setCancelled(true);
-        }
-    }
-
-    @EventHandler
-    public void Damage(EntityDamageEvent e) {
-        if (e.getCause() != EntityDamageEvent.DamageCause.VOID) {
-            e.setCancelled(true);
-
-        } else {
-            e.setCancelled(true);
-            Player p = (Player) e.getEntity();
-            Location destino = new Location(Bukkit.getServer().getWorld(getInstance().getConfig().getString("Spawn.world")), getInstance().getConfig().getDouble("Spawn.X"), getInstance().getConfig().getDouble("Spawn.Y"), getInstance().getConfig().getDouble("Spawn.Z"), (float) getInstance().getConfig().getInt("Spawn.yaw"), (float) getInstance().getConfig().getInt("Spawn.pitch"));
-            p.teleport(destino);
-        }
-    }
-
-    @EventHandler
-    public void Gamemode(PlayerGameModeChangeEvent e) {
-        Player p = e.getPlayer();
-        if (e.getNewGameMode() == GameMode.CREATIVE) {
-            if (!builder.contains(p)) {
-                e.setCancelled(true);
-                p.sendMessage("§cVocê não está com o modo construtor ativado.");
-            }
-        }
-    }
-
-    @EventHandler
-    public void Toggle(WeatherChangeEvent e) {
-        e.setCancelled(true);
     }
 
 }

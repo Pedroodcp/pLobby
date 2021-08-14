@@ -1,4 +1,4 @@
-package br.com.pedrodcp.plobby.GUI.Perfil.Evoluções;
+package br.com.pedrodcp.plobby.gui.profile.evolutions;
 
 import br.com.pedrodcp.plobby.utils.Item;
 import org.bukkit.Bukkit;

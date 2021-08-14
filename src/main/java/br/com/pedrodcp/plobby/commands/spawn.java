@@ -1,4 +1,4 @@
-package br.com.pedrodcp.plobby.Comandos;
+package br.com.pedrodcp.plobby.commands;
 
 import static br.com.pedrodcp.plobby.Main.*;
 import org.bukkit.Bukkit;

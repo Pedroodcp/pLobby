@@ -1,4 +1,4 @@
-package br.com.pedrodcp.plobby.GUI;
+package br.com.pedrodcp.plobby.gui;
 
 import br.com.pedrodcp.plobby.utils.Item;
 import org.bukkit.Bukkit;
@@ -14,14 +14,14 @@ public class Compass {
     private Inventory inventory;
 
     public Compass() {
-        inventory = Bukkit.createInventory(null, 9 * 4, "§8Modos de Jogo");
+        inventory = Bukkit.createInventory(null, 9 * 3, "§8Modos de Jogo");
         colocarItens();
     }
 
     public void colocarItens() {
         ItemStack i1 = new Item(Material.BOOK, 1, (short) 0)
-                .setName("§cManutenção")
-                .setLore(Arrays.asList("", "§7Estamos em manutenção, acesse §eredeteste.com/manutencao", "§7para mais detalhes."))
+                .setName("§cR. Teste")
+                .setLore(Arrays.asList("§7Este servidor encontra-se", "§7indisponível no momento.", "", "§fProgresso: §c▌▌▌▌▌▌▌▌▌▌ §80%", "", "§eredeteste.com.br"))
                 .addEnchant(Enchantment.DURABILITY, 1)
                 .hideEnchant()
                 .getItemStack();

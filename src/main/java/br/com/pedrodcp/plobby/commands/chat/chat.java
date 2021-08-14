@@ -1,4 +1,4 @@
-package br.com.pedrodcp.plobby.Comandos.Chat;
+package br.com.pedrodcp.plobby.commands.chat;
 
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
