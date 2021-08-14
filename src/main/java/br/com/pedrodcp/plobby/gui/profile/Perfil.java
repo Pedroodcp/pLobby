@@ -36,7 +36,7 @@ public class Perfil {
         metaitem.setOwner(nickname);
         Player p = Bukkit.getPlayer(nickname);
         metaitem.setDisplayName("§aInformações Pessoais");
-        metaitem.setLore(Arrays.asList("§fGrupo: " + LuckPermsProvider.get().getGroupManager().getGroup(LuckPermsProvider.get().getUserManager().getUser(p.getName()).getPrimaryGroup()).getDisplayName(), "§fCash: §7" + formatarCash(nickname), "", "§eredeteste.com.br"));
+        metaitem.setLore(Arrays.asList("§fGrupo: " + LuckPermsProvider.get().getGroupManager().getGroup(LuckPermsProvider.get().getUserManager().getUser(p.getName()).getPrimaryGroup()).getDisplayName().replace("&", "§"), "§fCash: §7" + formatarCash(nickname), "", "§eredeteste.com.br"));
 
         i1.setItemMeta(metaitem);
         inventory.setItem(13, i1);
