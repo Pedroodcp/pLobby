@@ -38,7 +38,7 @@ public class ScoreBoard {
         espaço = o.getScore("");
         espaço.setScore(8);
 
-        grupo = o.getScore("§fGrupo: " + LuckPermsProvider.get().getGroupManager().getGroup(LuckPermsProvider.get().getUserManager().getUser(player.getName()).getPrimaryGroup()).getDisplayName());
+        grupo = o.getScore("§fGrupo: " + LuckPermsProvider.get().getGroupManager().getGroup(LuckPermsProvider.get().getUserManager().getUser(player.getName()).getPrimaryGroup()).getDisplayName().replace("&", "§"));
         grupo.setScore(7);
 
         espaço = o.getScore(" ");
